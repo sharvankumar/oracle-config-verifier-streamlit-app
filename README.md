@@ -59,25 +59,9 @@ GRANT USAGE ON INTEGRATION oracle_external_access_integration TO ROLE SYSADMIN;
 
 ```
 
-### 2. Upload Files to Snowflake
+### 2. Create Streamlit App use the snowsight for quick setup
 
-```sql
--- Create stage and upload files
-CREATE OR REPLACE STAGE streamlit_stage;
-PUT file://streamlit_app.py @streamlit_stage;
-PUT file://oracle_connection_snowflake.py @streamlit_stage;
-PUT file://oracle_config.json @streamlit_stage;
-```
-
-### 3. Create Streamlit App
-
-```sql
-CREATE OR REPLACE STREAMLIT oracle_config_verifier
-  ROOT_LOCATION = '@streamlit_stage'
-  MAIN_FILE = 'streamlit_app.py'
-  QUERY_WAREHOUSE = <YOUR_WAREHOUSE>
-  EXTERNAL_ACCESS_INTEGRATIONS = (oracle_external_access_integration);
-```
+[Create and deploy Streamlit apps using Snowsight](https://docs.snowflake.com/developer-guide/streamlit/create-streamlit-ui)
 
 ### 4. Access Application
 
@@ -93,25 +77,6 @@ SHOW STREAMLITS;
 - Container Database (CDB) architecture
 - Required users: `C##XSTREAMADMIN`, `C##CONNECTUSER`
 - Required tablespaces: `XSTREAM_ADM_TBS`, `CONNECTUSER_TBS`
-
-### Connection Setup
-Edit `oracle_config.json`:
-
-```json
-{
-  "connections": {
-    "oracle-prod": {
-      "description": "Production Oracle Database",
-      "hostname": "your-oracle-host.com",
-      "port": 1521,
-      "service_name": "YOUR_SERVICE",
-      "username": "system",
-      "secret_name": "oracle_system_password",
-      "enabled": true
-    }
-  }
-}
-```
 
 ## 🔧 Usage
 
