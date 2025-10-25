@@ -152,10 +152,3 @@ GRANT USAGE ON INTEGRATION oracle_external_access_integration TO ROLE <YOUR_ROLE
 3. Make your changes
 4. Submit a pull request
 
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
----
-
-**🔍 Oracle Openflow Connector Configuration Verifier** - *Ensuring your Oracle database is ready for Snowflake CDC*
