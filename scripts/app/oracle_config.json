@@ -1,0 +1,40 @@
+{
+  "connections": {
+    "oracle-docker-oracle23free@system": {
+      "description": "Oracle 23c Free Docker Instance (System User)",
+      "hostname": "<cahnge the oracle ec2 machine name >",
+      "port": 1521,
+      "service_name": "FREEPDB1",
+      "username": "system",
+      "password": "",
+      "secret_name": "oracle_system_password",
+      "connection_type": "service_name",
+      "enabled": true
+    },
+    "oracle-docker-connectuser": {
+      "description": "Oracle 23c Free Docker Instance (Connect User)",
+      "hostname": "<cahnge the oracle ec2 machine name >",
+      "port": 1521,
+      "service_name": "FREEPDB1",
+      "username": "c##connectuser",
+      "password": "",
+      "secret_name": "oracle_connectuser_password",
+      "connection_type": "service_name",
+      "enabled": true
+    },
+    "oracle-docker-xstreamadmin": {
+      "description": "Oracle 23c Free Docker Instance (XStream Admin)",
+      "hostname": "<cahnge the oracle ec2 machine name >",
+      "port": 1521,
+      "service_name": "FREEPDB1",
+      "username": "c##xstreamadmin",
+      "password": "",
+      "secret_name": "oracle_xstreamadmin_password",
+      "connection_type": "service_name",
+      "enabled": true
+    }
+  },
+  "default_connection": "oracle-docker-oracle23free@system",
+  "notes": "For Snowflake Streamlit: Passwords stored in Snowflake secrets. For local: Enter password when connecting."
+}
+
